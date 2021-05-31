@@ -1,0 +1,73 @@
+﻿@model IEnumerable<House_Rental_System.Models.Property_Details>
+
+@{
+    ViewBag.Title = "Property";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+<div class="table-responsive">
+    <table class="table" style="margin-top:1%;">
+        <tr class="thead-dark">
+            <th>
+                @Html.DisplayNameFor(model => model.Property_Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property_Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property_State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property_City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property_Pin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Property_Status)
+            </th>
+            <th colspan="2">Action</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Property_Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Property_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Property_Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Property_State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Property_City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Property_Pin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Property_Status)
+        </td>
+
+        <td>
+            <a href="~/Customer/DeleteRequest/@item.Property_ID" class="text-danger">
+                <i class="fas fa-trash-alt" style="font-size:25px"></i>
+            </a>
+        </td>
+        <td>
+            <a href="~/Customer/Details/@item.Property_ID" class="text-info">
+                <i class="fa fa-mail-bulk" style="font-size:25px"></i>
+            </a>
+        </td>
+    </tr>
+        }
+
+    </table>
+</div>
